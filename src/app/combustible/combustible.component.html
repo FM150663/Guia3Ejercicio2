@@ -1,0 +1,12 @@
+<div class="header">
+    <h1>Dispensador de combustible</h1>
+    <p>Ingrese la cantidad de combustible en galones (min 0.05 max 150)</p>
+</div>
+<label>Valor:</label>
+<input  type="number" min="0.05" max="150" step="0.05" [(ngModel)]="galones">
+<label>Tipo de combustible:</label>
+<select [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+    <option value="Selecciona">Selecciona</option>
+    <option *ngFor="let c of combustibles" value="{{c}}" >{{c}}</option>
+</select>
+<label [hidden]="opcionSeleccionado == 'Selecciona'">Su monto total es: ${{precio}}</label>
